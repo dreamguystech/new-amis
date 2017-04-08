@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AMIS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/framework.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="shortcut icon" type="image/x-icon" href="images/logo.ico">
+  <link rel="apple-touch-icon" href="images/logo.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+  <section class="w-section mobile-wrapper">
+    <div class="page-content" id="main-stack">
+      <div class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-easing="ease-out-quint" data-no-scroll="1">
+        <div class="w-container">
+          <nav class="w-nav-menu nav-menu bg-gradient" role="navigation">
+            <div class="nav-menu-header">
+              <div class="logo">AMIS</div>
+            </div>
+            <a class="w-clearfix w-inline-block nav-menu-link" href="home.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-home-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Home</div>
+            </a>
+            <a class="w-clearfix w-inline-block nav-menu-link" href="events.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-calendar-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Events</div>
+            </a>
+            <a class="w-clearfix w-inline-block nav-menu-link" href="notification.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-android-notifications-none"></div>
+              </div>
+              <div class="nav-menu-titles">Notification</div>
+            </a>
+              <a class="w-clearfix w-inline-block nav-menu-link" href="finance.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-briefcase-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Finance</div>
+            </a>
+            <a class="w-clearfix w-inline-block nav-menu-link" href="messenger.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-chatboxes-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Messenger</div>
+            </a>
+            <div class="separator-bottom"></div>
+            <div class="separator-bottom"></div>
+            <div class="separator-bottom"></div>
+          </nav>
+          <div class="wrapper-mask" data-ix="menu-mask"></div>
+          <div class="navbar-title">Notificaion</div>
+          <div class="w-nav-button navbar-button left" id="menu-button" data-ix="hide-navbar-icons">
+            <div class="navbar-button-icon home-icon">
+              <div class="bar-home-icon top"></div>
+              <div class="bar-home-icon middle"></div>
+              <div class="bar-home-icon bottom"></div>
+            </div>
+          </div>
+          <a href="profile.html" class="profile-icon">
+           
+          </a>
+        </div>
+      </div> 
+      <div class="body">
+      <div class="grey-header" style="display:none;"><a href="#" class="w-inline-block small-button icon-only grey" style="float: left;">
+            <div class="icon ion-ios-arrow-left bigger icon-button"></div>
+        </a> <div style="" class="title-new"></div></div>
+        <div class="w-tabs" data-duration-in="400" data-duration-out="400" data-easing="ease-out-quint">
+          <div class="w-tab-menu top-buttons">
+            <a class="w-tab-link w--current w-inline-block toolbar-top-button" data-w-tab="Tab 1">
+              <i class="ion-ios-bell-outline"></i>
+            </a>
+            <a class="w-tab-link w-inline-block toolbar-top-button" data-w-tab="Tab 2">
+              <i class="ion-ios-personadd-outline"></i>
+            </a>
+            <a class="w-tab-link w-inline-block toolbar-top-button" data-w-tab="Tab 3">
+              <i class="ion-ios-email-outline"></i>
+            </a>
+            
+          </div>
+          <div class="w-tab-content tabs-content">
+            <div class="w-tab-pane w-clearfix tab-pane" data-w-tab="Tab 1">
+            	<div class="w-row list-message">
+                        <div class="w-col w-col-tiny-10">
+                          <h5>Inbox</h5>
+                        </div>
+                        <div class="w-col w-col-tiny-2 n-p-r">
+                          <a href="#" class="w-inline-block small-button icon-only grey compose" style="color:#000;">
+                            <div class="icon ion-ios-compose-outline bigger icon-button"></div>
+                            </a>
+                        </div>                        
+                  </div>
+                   <div class="w-row list-message" id="inbox_list">                  	
+                  </div>
+                  <div class="w-row list-message" id="compose_msg" style="display:none;"> 
+                  <div class="w-col w-col-tiny-12 n-p-l">
+                          <a style="float: left;" class="w-inline-block small-button icon-only grey" href="#">
+            				<div class="icon ion-ios-arrow-left bigger icon-button"></div></a> <div class="title-new" style="">Compose</div>
+                            <form id="com-form" name="com-form" action="#" method="post">
+                            <div>
+                              <label for="node-10" class="label-form">Region *</label>
+                              <div class="separator-fields"></div>
+                              <select id="region" class="w-select input-form select">
+                                <option value="">Select</option> 
+                                               
+                              </select>
+                            </div>
+                            <div>
+                              <label for="node-10" class="label-form">Majlis *</label>
+                              <div class="separator-fields"></div>
+                              <select id="majlis" class="w-select input-form select">
+                                <option value="">Select</option> 
+                                               
+                              </select>
+                            </div>
+                            <div class="w-col w-col-tiny-12">
+                                <div class="w-col w-col-tiny-10">
+                                  <label for="node-10" class="label-form">Surname *</label>
+                                  <div class="separator-fields"></div>
+                                  <input type="text" class="w-input input-form" name="surname" id="surname" />
+                                </div>
+                                <div class="w-col w-col-tiny-2"><a href="#" class="w-inline-block small-button icon-only " style="float: left;" id="searchmember">
+                                <div class="icon ion-ios-search bigger icon-button"></div></a>
+                               </div>
+                            </div>
+                            <div id="mem_list" class="w-col">
+                              
+                            </div>
+                            <div class="separator-bottom"></div>
+                            <div id="comfot" style="display:none;">
+                            <div class="w-col" >
+                              <label for="node-10" class="label-form">Subject *</label>
+                              <div class="separator-fields"></div>
+                              <input type="text" class="w-input input-form" name="subject" id="subject" />
+                            </div>
+                            <div >
+                              <label for="node-10" class="label-form">Message *</label>
+                              <div class="separator-fields"></div>
+                              <textarea class="w-input input-form" name="message" id="message" ></textarea>
+                            </div>
+                            <div class="w-col w-col-tiny-5">
+                            <input class="w-button action-button" type="submit" value="Send" name="comsave" id="comsave" >
+                          </div>
+                          <div class="w-col w-col-tiny-2">
+                            &nbsp;
+                          </div>
+                          <div class="w-col w-col-tiny-5">
+                            <button class="w-button action-button" type="buttom" name="comcancel" id="comcancel" >Cancel</button>
+                          </div>
+                          </div></form>
+                        </div> 
+                        
+                  </div>
+            </div>
+            <div class="w-tab-pane w--tab-active tab-pane" data-w-tab="Tab 2" >
+            	<div class="w-row list-message">
+                        <div class="w-col w-col-tiny-8">
+                          <h5>Contacts</h5>
+                        </div>
+                        <div class="w-col w-col-tiny-2 n-p-r">
+                          <a href="#" class="w-inline-block small-button icon-only grey viewdft" style="color:#000;">
+                            <div class="icon ion-ios-book-outline bigger icon-button"></div>
+                            </a>
+                        </div>
+                        <div class="w-col w-col-tiny-2 n-p-r">
+                          <a href="#" class="w-inline-block small-button icon-only grey addtab" style="color:#000;">
+                            <div class="icon ion-ios-plus-outline bigger icon-button"></div>
+                            </a> 
+                        </div>
+                  </div>
+                  <div class="w-row list-message" id="cont_list">
+                  	
+                  </div>
+                  <div class="w-row" id="cont_view">
+                  	
+                  </div>
+                  
+                  <div class="w-row list-message" id="add_new" style="display:none;">
+                        <div class="w-col w-col-tiny-12 n-p-l">
+                          <a style="float: left;" class="w-inline-block small-button icon-only grey" href="#">
+            <div class="icon ion-ios-arrow-left bigger icon-button"></div>
+        </a> <div class="title-new" style="">Add</div>
+                        </div>
+                        <div class="w-form" >
+            <form id="cont-form" name="cont-form" action="#" method="post">
+              <div>
+                <label class="label-form light" for="full-name-field">FIRST NAME *</label>
+                <input class="w-input input-form light" id="first-name" type="text" name="first-name" >
+                <div class="separator-fields"></div>
+              </div>
+              <div>
+                <label class="label-form light" for="email-field">MIDDLE NAME</label>
+                <input class="w-input input-form light" id="middle-name" type="text" name="middle-name" >
+                <div class="separator-fields"></div>
+              </div>
+              <div>
+                <label class="label-form light" for="password-ield">SURNAME *</label>
+                <input class="w-input input-form light" id="surname" type="text" name="surname">
+                <div class="separator-fields"></div>
+              </div>
+              <div>
+                <label class="label-form light" for="birthday-field">MOBILE *</label>
+                <input class="w-input input-form light" id="mobile" type="text" name="mobile" data-name="mobile" >
+              </div>
+               <div>
+                <label class="label-form light" for="password-ield">PRIMARY EMAIL *</label>
+                <input class="w-input input-form light" id="email" type="email" name="email">
+                <div class="separator-fields"></div>
+              </div>
+               <div>
+                <label class="label-form light" for="password-ield">HOUSE / FLAT NO</label>
+                <input class="w-input input-form light" id="flat" type="text" name="flat">
+                <div class="separator-fields"></div>
+              </div>
+               <div>
+                <label class="label-form light" for="password-ield">HOUSE NAME</label>
+                <input class="w-input input-form light" id="house" type="text" name="house">
+                <div class="separator-fields"></div>
+              </div>
+              <div>
+                <label class="label-form light" for="password-ield">STREET</label>
+                <input class="w-input input-form light" id="street" type="text" name="street">
+                <div class="separator-fields"></div>
+              </div>
+              <div>
+                <label class="label-form light" for="password-ield">LOCALITY</label>
+                <input class="w-input input-form light" id="locality" type="text" name="locality">
+                <div class="separator-fields"></div>
+              </div>
+              <div>
+                <label class="label-form light" for="password-ield">TOWN</label>
+                <input class="w-input input-form light" id="town" type="text" name="town">
+                <div class="separator-fields"></div>
+              </div>
+              <div>
+                <label class="label-form light" for="password-ield">POST CODE</label>
+                <input class="w-input input-form light" id="postcode" type="text" name="postcode">
+                <div class="separator-fields"></div>
+              </div>
+              <div class="separator-button-input"></div>
+              <input type="hidden" class="dr_id" id="dr_id" />
+              <div class="w-col w-col-tiny-6">
+              	<input class="w-button action-button" type="submit" value="Save" name="savefrm" id="savefrm" >
+              </div>
+              <div class="w-col w-col-tiny-6">
+              	<input class="w-button action-button" type="submit" value="Draft" name="draftfrm" id="draftfrm" >
+              </div>
+            </form>
+            
+          </div>
+                  </div>
+                  
+                  <div class="w-row list-message" id="dft_list" style="display:none;">
+                  
+                  </div>
+                  
+            </div>
+            <div class="w-tab-pane w-clearfix tab-pane" data-w-tab="Tab 3">
+                <div class="w-tab-menu top-buttons">
+                    <a class="w-tab-link w--current w-inline-block toolbar-top-button" data-w-tab="Tab 31" style="width:15.33%;">
+                    <i class="ion-ios-keypad-outline"></i>
+                    </a>
+                    <a class="w-tab-link w-inline-block toolbar-top-button" data-w-tab="Tab 32" style="width:15.33%;">
+                    <i class="ion-ios-barcode-outline"></i>
+                    </a>
+                    <a class="w-tab-link w-inline-block toolbar-top-button" data-w-tab="Tab 33" style="width:15.33%;">
+                    <i class="ion-ios-people-outline"></i>
+                    </a>
+                    <a class="w-tab-link w-inline-block toolbar-top-button" data-w-tab="Tab 34" style="width:15.33%;">
+                    <i class="ion-ios-color-filter-outline"></i>
+                    </a>
+                    <a class="w-tab-link w-inline-block toolbar-top-button" data-w-tab="Tab 35" style="width:15.33%;">
+                    <i class="ion-ios-grid-view-outline"></i>
+                    </a>
+                    <a class="w-tab-link w-inline-block toolbar-top-button" data-w-tab="Tab 36" style="width:15.33%;">
+                    <i class="ion-email-unread"></i>
+                    </a>
+          		</div>
+                <div class="w-tab-content tabs-content">
+                    <div class="w-tab-pane w-clearfix tab-pane w--tab-active" data-w-tab="Tab 31">
+                    </div>
+                    <div class="w-tab-pane w-clearfix tab-pane" data-w-tab="Tab 32">
+                    </div>
+                    <div class="w-tab-pane w-clearfix tab-pane" data-w-tab="Tab 33">
+                    </div>
+                     <div class="w-tab-pane w-clearfix tab-pane" data-w-tab="Tab 34">
+                    </div>
+                     <div class="w-tab-pane w-clearfix tab-pane" data-w-tab="Tab 35">
+                    </div>
+                    <div class="w-tab-pane w-clearfix tab-pane" data-w-tab="Tab 36">
+                    </div>
+                </div>          
+            </div>
+            
+          </div>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    <div class="page-content loading-mask" id="new-stack">
+      <div class="loading-icon">
+        <div class="navbar-button-icon icon ion-load-d"></div>
+      </div>
+    </div>
+  </section>
+  <script src="js/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Montserrat:400,700"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/framework.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
+  <script type="text/javascript" src="js/notification.js"></script>
+  <!--<script src="js/modernizr.min.js" type="text/javascript"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>-->
+   <!-- <script src="js/jquery.hammer.min.js" type="text/javascript"></script>
+    <script src="js/TweenMax.min.js" type="text/javascript"></script>
+    <script src="js/image_grid.min.js" type="text/javascript"></script>-->
+  <!--[if lte IE 9]><script src="js/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

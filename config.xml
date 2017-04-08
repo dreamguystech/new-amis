@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="com.dreamguys.amis" version="3.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>AMIS</name>
+    <description>
+        AMIS is an intermediate app that connects members who wants to know their events, finance status and notifications through the app.
+    </description>
+    <author email="dreamguystech@gmail.com" href="http://dreamguys.co.in/">
+        DreamGuy's
+    </author>
+
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.SplashScreen" />
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+	
+	<preference name="phonegap-version" value="cli-6.3.0" />
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="portrait" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="show-splash-screen-spinner" value="false" />
+    <preference name="load-url-timeout" value="40000" />
+    <!--<preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />-->
+	<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <plugin name="com.phonegap.plugins.pushplugin" spec="2.5.0" source="pgb" />
+    <plugin name="org.apache.cordova.network-information" source="pgb" />
+    <plugin name="org.apache.cordova.dialogs" source="pgb" />
+    <plugin name="org.apache.cordova.splashscreen" source="pgb" />
+    <plugin name="org.apache.cordova.media" source="pgb" />    
+    <!--<plugin name="cordova-plugin-device" source="pgb" />
+    <plugin name="cordova-plugin-file" source="pgb" />
+    <plugin name="cordova-plugin-file-transfer" source="pgb" />-->
+
+    <icon src="res/icon/ios/classic.png" gap:platform="ios" width="57" height="57" />
+    <icon src="res/icon/ios/ipad.png" gap:platform="ios" width="72" height="72" />
+    <icon src="res/icon/ios/icon-76x76.png" gap:platform="ios" width="76" height="76" />
+    <icon src="res/icon/ios/retina.png" gap:platform="ios" width="114" height="114" />
+    <icon src="res/icon/ios/icon-120x120.png" gap:platform="ios" width="120" height="120" />
+    <icon src="res/icon/ios/retina_ipad.png" gap:platform="ios" width="144" height="144" />
+    <icon src="res/icon/ios/icon-152x152.png" gap:platform="ios" width="152" height="152" />
+
+    <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
+    <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
+    <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
+    <icon gap:density="xhdpi" gap:platform="android" src="res/icon/android/icon-96-xhdpi.png" />
+    <icon src="icon-512.png" />
+
+	<gap:splash gap:density="ldpi" gap:platform="android" src="res/screen/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="res/screen/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="res/screen/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="res/screen/android/screen-xhdpi-portrait.png" />
+
+    <gap:splash gap:platform="ios" src="res/screen/ios/Default.png" width="320" height="480" />
+    <gap:splash gap:platform="ios" src="res/screen/ios/Default_at_2x.png" width="640" height="960" />
+    <gap:splash gap:platform="ios" src="res/screen/ios/Default-568h@2x.png" width="640" height="1136" />
+    <gap:splash gap:platform="ios" src="res/screen/ios/Default-portrait-ipad.png" width="768" height="1024" />
+    <gap:splash gap:platform="ios" src="res/screen/ios/Default-Portrait@2x-ipad.png" width="1536" height="2008" />
+  
+    <access origin="*" />
+</widget>
