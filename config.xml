@@ -36,7 +36,7 @@
     <preference name="load-url-timeout" value="40000" />
     <!--<preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />-->
 	<preference name="AndroidPersistentFileLocation" value="Compatibility" />
-    <plugin name="com.phonegap.plugins.pushplugin" spec="2.5.0" source="pgb" />
+    <!--<plugin name="com.phonegap.plugins.pushplugin" spec="2.5.0" source="pgb" />-->
     <plugin name="org.apache.cordova.network-information" source="pgb" />
     <plugin name="org.apache.cordova.dialogs" source="pgb" />
     <plugin name="org.apache.cordova.splashscreen" source="pgb" />
