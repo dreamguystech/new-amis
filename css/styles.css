@@ -95,7 +95,7 @@ a {
 .mobile-wrapper {
   position: relative;
   width: 342px;
-  height: 570px;
+  /*height: 570px;*/
   margin-right: auto;
   margin-left: auto;
   background-color: white;

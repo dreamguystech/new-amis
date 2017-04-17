@@ -1,6 +1,7 @@
 $(document).ready(function(e) {
 	$(".loading-mask").css('opacity','0.5');
-	
+	/*$('#rooms').animate({
+        scrollTop: 300}, 2000);*/
 	
 	
   //setup "global" variables first
@@ -237,6 +238,7 @@ $(document).ready(function(e) {
 	$(".list-messages").hide();
 	$(".navbar-title").empty().append($(this).find('.message-title').html());
 	$(".messenger-content-body").css('display','block');
+	$("html, body").animate({ scrollTop: 9999  }, 1000);
     
   });
 
@@ -366,8 +368,9 @@ socket.on("history", function(data) {
   	var chat_cls = "conversation-other";
 	if (person.name ===  window.localStorage.getItem("first_name")) var chat_cls = "conversation-self";
 	var show_cht = 'style="display:none;"';
+	$("html, body").animate({ scrollTop: 9999  }, 1000);
 	if($("#rooms li.active").attr('data-rid') == myRoomID || $("#rooms li.active").attr('id') == myRoomID) show_cht = 'style="display:block;"';
-    $("#msgs").append("<li class='conversation-item' data-rid='"+myRoomID+"' "+show_cht+"><div class='"+chat_cls+"'><div class='conversation-avatar'><img class='img-circle' src='images/0180441436.jpg' alt='"+person.name+"' width='36' height='36'></div><div class='conversation-messages'><div class='conversation-message'>" + msg + "</div></div></div></li>");	
+    $("#msgs").append("<li class='conversation-item' data-rid='"+myRoomID+"' "+show_cht+"><div class='"+chat_cls+"'><div class='message-title'>"+person.name+"</div><div class='conversation-messages'><div class='conversation-message'>" + msg + "</div></div></div></li>");	
     //clear typing field
      $("#"+person.name+"").remove();
      clearTimeout(timeout);
