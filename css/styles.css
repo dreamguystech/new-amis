@@ -1856,3 +1856,4 @@ input[type=text]:focus, textarea:focus {
 .img-circle {
     border-radius: 50%;
 }
+.conversation-other .message-title{display:block; text-align:right;}
