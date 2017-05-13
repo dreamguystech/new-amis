@@ -23,7 +23,7 @@ $(document).ready(function(e) {
 				});*/
 		
   var dataString = "user_id="+window.localStorage.getItem("user_id");
-  var roomlist = new Array; var roomlistid = new Array;
+  var roomlist = new Array, roomlistid = new Array, msgtype = new Array;
     $('#details_event').html('');
     $.ajax({
         url:'http://amisapp.ansarullah.co.uk/mobile_newapp/group_list',
@@ -33,18 +33,19 @@ $(document).ready(function(e) {
         success:function(data){ 
 			  $(".loading-mask").css('opacity','0');		//alert(1);	
 			 // $(".list-messages").empty().append(data.group);
-			  $.each( data.groups, function( key, value ) {
-					roomlist.push(value);
+			  $.each( data.groups, function( key, value ) { 
+					roomlist.push(value['name']);
 					roomlistid.push(key);
-					socket.emit("check", value, function(data) { 
+					msgtype[key] = value['msgtype'];
+					socket.emit("check", value['name'], function(data) { 
 					  roomExists = data.result; 
 					   if (roomExists) {
 						  $("#errors").empty();
 						  $("#errors").show();
 						  //$("#errors").append("Room <i>" + element + "</i> already exists");
 						} else {      
-						if (value.length > 0) { 
-						  socket.emit("createRoom", value);
+						if (value['name'].length > 0) { 
+						  socket.emit("createRoom", value['name']);
 						  }
 						}
 					});
@@ -62,7 +63,7 @@ $(document).ready(function(e) {
 				  if($.inArray(room.name,roomlist) != -1){ //alert($.inArray(room.name,roomlist));
 					var html = "<button id="+id+" class='joinRoomBtn btn btn-default btn-xs' >Join</button>" + " " + "<button id="+id+" class='removeRoomBtn btn btn-default btn-xs'>Remove</button>"; 
 				  //  $('#rooms').append("<li id="+id+" class=\"list-message\"><span>" + room.name + "</span> " + html + "</li>");
-					$('#rooms').append('<li id="'+id+'" data-rid="'+roomlistid[roomlist.indexOf(room.name)]+'" class=\"list-message\"><a class="w-clearfix w-inline-block" href="javascript:void(0);"><div class="w-clearfix column-left"><div class="image-message"><img src="images/placeholder.png" style="height: 50px;"></div></div><div class="column-right"><div class="message-title">'+ room.name +'</div><div class="message-text">msg</div></div></a></li>');
+					$('#rooms').append('<li id="'+id+'" data-rid="'+roomlistid[roomlist.indexOf(room.name)]+'" class=\"list-message\" data-limit="0" data-stop="0"><a class="w-clearfix w-inline-block" href="javascript:void(0);"><div class="w-clearfix column-left"><div class="image-message"><img src="images/placeholder.png" style="height: 50px;"></div></div><div class="column-right"><div class="message-title">'+ room.name +'</div><div class="message-text">msg</div></div></a></li>');
 				  }
 				  });
 				} /*else {
@@ -220,18 +221,21 @@ $(document).ready(function(e) {
     socket.emit("leaveRoom", roomID);
 	$("#rooms li").each(function(index, element) {
         $(this).removeClass('active');
-    });
-	$.post('http://amisapp.ansarullah.co.uk/mobile_newapp/get_msg',{gid:$(this).parent().attr('data-rid'),uid:window.localStorage.getItem("user_id")},function(data){
+    }); $(".input-chat-block").show(); if(msgtype[$(this).parent().attr("data-rid")] == 2) $(".input-chat-block").hide();
+	/*$.post('http://amisapp.ansarullah.co.uk/mobile_newapp/get_msg',{gid:$(this).parent().attr('data-rid'),uid:window.localStorage.getItem("user_id")},function(data){
 		$("#msgs").append(data.msg);
-		},"json");
+		},"json");*/
+	if($(this).parent().attr('data-stop') == "0")
+	loadmsgs($(this).parent().attr('data-rid'),$(this).parent().attr('data-limit'),20);
 	socket.emit("leaveRoom", roomID);
 	var roomName = $(this).find(".message-title").text();
     var roomID = $(this).parent().attr("id");
+	var gID = $(this).parent().attr('data-rid');
     socket.emit("joinRoom", roomID);
 	$(this).parent().addClass('active');
 	$("#msgs li").each(function(index, element) {
 		$(this).hide();
-        if($(this).attr('data-rid') == roomID) $(this).show();
+        if($(this).attr('data-rid') == roomID || $(this).attr('data-gid') == gID) $(this).show();
     });
 	$("#menu-button").hide();
 	$("#chatin").show();
@@ -241,7 +245,26 @@ $(document).ready(function(e) {
 	$("html, body").animate({ scrollTop: 9999  }, 1000);
     
   });
+var cnt_loop;
+	function loadmsgs(gid,cnt,limit){ 
+		if(cnt_loop != parseInt(cnt)){
+			$.post('http://amisapp.ansarullah.co.uk/mobile_newapp/get_msg',{gid:gid,uid:window.localStorage.getItem("user_id"),cnt:cnt,limit:limit},function(data){  if(data.msg !=''){
+			$("#msgs").prepend(data.msg);
+			$("#rooms li.active").attr('data-limit',data.cnt);
+			}else
+			$("#rooms li.active").attr('data-stop',1);
+			},"json");
+			cnt_loop = parseInt(cnt);
+		}
+	}
 
+	$(window).scroll(function() {
+   if($(window).scrollTop() < 200) {
+	   if($("#rooms li.active").attr('data-stop') == "0"){
+       		loadmsgs($("#rooms li.active").attr('data-rid'),$("#rooms li.active").attr('data-limit'),20);
+	   }
+   }
+});
   $("#rooms").on('click', '.removeRoomBtn', function() {
     var roomName = $(this).find(".message-title").text();
     var roomID = $(this).attr("id");
@@ -418,3 +441,5 @@ $(document).on('click','#chatin',function(){
 	$(".messenger-content-body").hide();
 	$(".navbar-title").empty().append('Messenger');
 });
+
+
